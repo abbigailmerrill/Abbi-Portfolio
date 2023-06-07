@@ -1,0 +1,555 @@
+* {
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html, body, form {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin-bottom: 0;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+nav {
+  height: 100px;
+  width: 100%;
+  background-color: #CFC2F2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 10;
+}
+
+nav a img {
+  height: 75%;
+  margin-left: 25px;
+}
+
+.logo {
+  height: 100%;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.links {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 25px;
+}
+
+.links a {
+  color: black;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 22px;
+  background-color: #CFC2F2;
+  background: linear-gradient(to left, #CFC2F2 50%, #724ae0 50%) right;
+  background-size: 205%;
+  transition: 0.25s ease-out;
+}
+
+.links a:not(.githubLink) {
+  padding: 5px;
+}
+
+.links a:hover {
+  background-position: left;
+  color: white;
+}
+
+.githubLink {
+  height: 100%;
+  object-fit: cover;
+  display: flex;
+  align-items: center;
+}
+
+.links a svg {
+  height: 50%;
+  color: black;
+  font-weight: normal;
+}
+
+.githubLink svg:hover {
+  color: white !important;
+}
+
+.arrow {
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: sticky;
+}
+
+.line, .widgetLine {
+  width: 100px;
+  height: 4px;
+  background-color: black;
+  transition: 2s color;
+}
+
+.widgetLine {
+  background-color: white;
+}
+
+.widgetArrow {
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.right {
+  transform: rotate(-45deg);
+  margin-left: -10px;
+}
+
+.widgetLine.left {
+  transform: rotate(-45deg);
+}
+
+.widgetLine.right {
+  transform: rotate(45deg);
+}
+
+.left {
+  transform: rotate(45deg);
+  margin-right: -10px;
+}
+
+.arrow.shadow .line {
+  background-color: white;
+  transition: 2s color;
+}
+
+.arrow.shadow, .widgetArrow.shadow {
+  background-color: transparent;
+  margin-top: -94px;
+}
+
+.arrowBox {
+  z-index: 9;
+}
+
+.arrowBox:hover .line {
+  background-color: #724ae0;
+  transition: 2s color;
+}
+.arrowBox:hover .arrow.shadow .line {
+  background-color: black;
+  transition: 2s color;
+}
+
+.widget {
+  height: 100px;
+  width: 100px;
+  background-color: #CFC2F2;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+}
+
+.widgetArrow.shadow .widgetLine {
+  background-color: black;
+}
+
+.widgetBox:hover .widgetLine {
+  background-color: black;
+  transition: 2s color;
+}
+.widgetBox:hover .widgetArrow.shadow .widgetLine {
+  background-color: #724ae0;
+  transition: 2s color;
+}
+
+.menu {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 75%;
+  width: 100px;
+  cursor: pointer;
+  margin-right: 75px;
+  position: relative;
+}
+
+.menu div {
+  width: 70%;
+  height: 4px;
+  border-radius: 25px;
+  background-color: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(50%, 50%);
+  transition: transform 0.6s, opacity 0.8s, top 0.6s;
+}
+
+.menu.postAnimation {
+  margin-right: 0;
+}
+
+.menu div:nth-child(1) {
+  top: 25%;
+}
+
+.menu div:nth-child(1).active {
+  transform: translate(-50%, -50%) rotate(-315deg);
+  top: 50%;
+}
+
+.menu div:nth-child(2).active {
+  opacity: 0;
+  transition: 0s;
+}
+
+.menu div:nth-child(3) {
+  top: 75%;
+}
+
+.menu div:nth-child(3).active {
+  transform: translate(-50%, -50%) rotate(-225deg);
+  top: 50%;
+}
+
+.menuSlideout {
+  height: 90%;
+  width: 400px;
+  background-color: #CFC2F2;
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin-top: 100px;
+  display: none;
+  z-index: 11;
+}
+.menuSlideout .githubLink {
+  height: 15%;
+}
+.menuSlideout .githubLink svg {
+  height: 100%;
+  width: 100%;
+}
+
+.menuSlideout a {
+  color: black;
+  font-size: 20px;
+  text-decoration: none;
+  margin: 0;
+}
+
+.menuSlideout.active {
+  animation: slideIn 0.75s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+@media screen and (max-width: 740px) {
+  .links {
+    display: none;
+  }
+  .menu {
+    display: flex;
+  }
+}
+@media screen and (min-width: 740px) {
+  .menuSlideout {
+    display: none !important;
+  }
+}
+#hero {
+  flex-direction: column;
+  overflow: hidden;
+  justify-content: space-between;
+}
+
+h1 {
+  color: white;
+  font-size: 42px;
+}
+
+.heroHeader {
+  margin-top: 300px;
+}
+
+h2 {
+  color: white;
+  font-size: 30px;
+  font-weight: 300;
+  margin-top: -200px;
+}
+
+.arrowBox {
+  margin-bottom: 25px;
+}
+
+.section {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, #9C6EF2, #260C5A);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 520px) {
+  #hero h2 {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 415px) {
+  #hero h2 {
+    font-size: 18px;
+  }
+}
+@media screen and (max-height: 679px) {
+  #hero h2 {
+    margin-top: 0;
+  }
+}
+#about {
+  flex-direction: column;
+}
+#about h1 {
+  margin-top: 50px;
+  margin-bottom: -150px;
+  height: 20%;
+}
+
+.aboutContent {
+  height: 70%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.aboutContent img, .aboutContent p {
+  height: 75%;
+}
+.aboutContent p {
+  color: white;
+  width: 45%;
+  margin-left: 50px;
+  line-height: 2.05;
+  margin-top: -10px;
+}
+
+@media screen and (max-width: 990px) {
+  .aboutContent {
+    min-height: 70%;
+  }
+  .aboutContent p {
+    height: 60%;
+    font-size: 14px;
+  }
+  .aboutContent img {
+    height: 500px;
+  }
+  #about.section {
+    height: auto;
+  }
+  #about.section h1 {
+    margin: 0;
+  }
+}
+@media screen and (max-width: 740px) {
+  .aboutContent {
+    flex-direction: column;
+    min-height: 70%;
+  }
+  .aboutContent p {
+    width: 80%;
+    margin-top: 25px;
+  }
+  .aboutContent img {
+    height: 400px;
+  }
+  #about.section {
+    height: auto;
+  }
+  #about.section h1 {
+    margin-bottom: 0;
+  }
+}
+#experience {
+  flex-direction: column;
+}
+#experience h1 {
+  margin-top: 100px;
+}
+
+.experienceContent {
+  height: 75%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.expImgs {
+  height: 100%;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.wunderkind {
+  height: 200px;
+  margin-left: -250px;
+}
+
+.iupui {
+  height: 125px;
+  margin-left: 110px;
+}
+
+.experienceContent p {
+  height: 75%;
+  width: 40%;
+  color: white;
+  margin-left: 50px;
+}
+.experienceContent p a {
+  color: violet;
+}
+.experienceContent p a:hover {
+  color: #260C5A;
+}
+
+@media screen and (max-width: 945px) {
+  .wunderkind {
+    height: 25%;
+  }
+  .iupui {
+    height: 15%;
+  }
+  .experienceContent p {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .expImgs {
+    justify-content: center;
+    margin-top: -100px;
+  }
+  .experienceContent {
+    flex-direction: column;
+    margin-bottom: 25px;
+  }
+  .experienceContent p {
+    width: 80%;
+    font-size: 12px;
+    margin-top: -100px;
+  }
+}
+@media screen and (max-height: 600px) {
+  #experience h1 {
+    margin-top: 35%;
+  }
+  .arrowBox {
+    z-index: 11;
+  }
+}
+#projects {
+  flex-direction: column;
+  height: auto;
+  padding-bottom: 15px;
+}
+#projects h1 {
+  margin-top: 115px;
+}
+
+.projectLine {
+  height: 2px;
+  width: 350px;
+  background-color: white;
+  margin-top: 8px;
+}
+
+.projectContainer {
+  min-height: 75%;
+  width: 85%;
+  margin-top: 10px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.projectBox {
+  height: 350px;
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin: 22px;
+}
+.projectBox h3 {
+  color: white;
+  margin-bottom: 10px;
+}
+.projectBox img {
+  width: 100%;
+  object-fit: cover;
+}
+.projectBox p {
+  color: white;
+  font-size: 14px;
+  text-align: left;
+  width: 100%;
+  margin-top: 10px;
+}
+
+@media screen and (max-height: 615px) {
+  #projects h1 {
+    margin-top: 20%;
+  }
+}
+@media screen and (max-height: 490px) {
+  #projects h1 {
+    margin-top: 40%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

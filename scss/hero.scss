@@ -1,0 +1,58 @@
+$gradient-value1: #9C6EF2;
+$gradient-value2: #260C5A;
+$input-color: #B1A7A7;
+
+#hero{
+    flex-direction: column;
+    overflow: hidden;
+    justify-content: space-between;
+}
+
+h1{
+    color: white; 
+    font-size: 42px;
+}
+
+.heroHeader{
+    margin-top: 300px;
+}
+
+h2{
+    color: white; 
+    font-size: 30px;
+    font-weight: 300;
+    margin-top: -200px;
+}
+
+.arrowBox{
+    margin-bottom: 25px;
+}
+
+.section{
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to right, $gradient-value1, $gradient-value2);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 520px){
+    #hero h2{
+        font-size:24px;
+    }
+}
+
+@media screen and (max-width: 415px){
+    #hero h2{
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-height: 679px){
+    #hero h2{
+        margin-top: 0;
+    }
+}

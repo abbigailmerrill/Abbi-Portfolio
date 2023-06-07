@@ -1,0 +1,325 @@
+// variables
+$main-purple: #CFC2F2;
+$secondary-purple: #724ae0;
+
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+  
+  body{
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body, form {
+      height: 100%;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+  }
+  
+    h1,h2,h3,h4,h5,h6,p{
+      margin-bottom: 0;
+    }
+    
+    form {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      flex-direction: column;
+    }
+  
+   nav{
+    height: 100px;
+    width: 100%;
+    background-color: $main-purple;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 10;
+   }
+  
+   nav a img{
+    height: 75%;
+    margin-left: 25px;
+   }
+  
+  .logo{
+    height: 100%;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+   .links{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 25px;
+   }
+  
+   .links a{
+    color: black;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 22px;
+    background-color: $main-purple;
+    background: linear-gradient(to left, $main-purple 50%, $secondary-purple 50%) right;
+    background-size: 205%;
+    transition: .25s ease-out;
+   }
+  
+   .links a:not(.githubLink){
+    padding: 5px;
+   }
+  
+   .links a:hover{
+    background-position: left;
+    color: white;
+   }
+  
+   .githubLink{
+    height: 100%;
+    object-fit: cover;
+    display: flex;
+    align-items: center;
+   }
+  
+   .links a svg{
+    height: 50%;
+    color: black;
+    font-weight: normal;
+   }
+  
+   .githubLink svg:hover{
+    color:white!important;
+   }
+  
+   //  Arrow styling
+  
+  .arrow{
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: sticky;
+  }
+  
+  .line, .widgetLine{
+    width: 100px;
+    height: 4px;
+    background-color: black;
+    transition: 2s color;
+  }
+  
+  .widgetLine{
+    background-color: white;
+  }
+  
+  .widgetArrow{
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .right{
+    transform: rotate(-45deg);
+    margin-left: -10px;
+  }
+  
+  .widgetLine.left{
+    transform:rotate(-45deg);
+  }
+  
+  .widgetLine.right{
+    transform:rotate(45deg);
+  }
+  
+  .left{
+    transform: rotate(45deg);
+    margin-right: -10px;
+  }
+  
+  .arrow.shadow .line{
+    background-color: white;
+    transition: 2s color;
+  }
+  
+  .arrow.shadow, .widgetArrow.shadow{
+    background-color: transparent;
+    margin-top: -94px;
+  }
+  
+  .arrowBox{
+    z-index: 9;
+  }
+  
+  .arrowBox:hover{
+  
+    .line{
+      background-color: $secondary-purple;
+      transition: 2s color;
+    }
+  
+    .arrow.shadow .line{
+      background-color: black;
+      transition: 2s color;
+    }
+  }
+  
+  .widget{
+    height: 100px;
+    width: 100px;
+    background-color: $main-purple;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+  }
+  
+  .widgetArrow.shadow .widgetLine{
+    background-color: black;
+  }
+  
+  .widgetBox:hover{
+  
+    .widgetLine{
+      background-color: black;
+      transition: 2s color;
+    }
+  
+    .widgetArrow.shadow .widgetLine{
+      background-color: $secondary-purple;
+      transition: 2s color;
+    }
+  
+  } 
+  
+  // Menu button design and animation stylings
+  
+  .menu{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 75%;
+    width: 100px;
+    cursor: pointer;
+    margin-right: 75px;
+    position: relative;
+  }
+  
+  .menu div{
+    width: 70%;
+    height: 4px;
+    border-radius: 25px;
+    background-color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(50%,50%);
+    transition: transform .6s, opacity .8s, top .6s
+  }
+  
+  .menu.postAnimation{
+    margin-right: 0;
+  }
+  
+  .menu div:nth-child(1){
+    top: 25%;
+  }
+  
+  .menu div:nth-child(1).active{
+    transform: translate(-50%, -50%) rotate(-315deg);
+    top: 50%;
+  }
+  
+  .menu div:nth-child(2).active{
+    opacity: 0;
+    transition: 0s;
+  }
+  
+  .menu div:nth-child(3){
+    top: 75%;
+  }
+  
+  .menu div:nth-child(3).active{
+    transform: translate(-50%, -50%) rotate(-225deg);
+    top: 50%;
+  }
+  
+  .menuSlideout{
+    height: 90%;
+    width: 400px;
+    background-color: $main-purple;
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin-top: 100px;
+    display: none;
+    z-index: 11;
+  
+    .githubLink{
+      height: 15%;
+    }
+  
+    .githubLink svg{
+      height: 100%;
+      width: 100%;
+    }
+  }
+  
+  .menuSlideout a{
+    color: black;
+    font-size: 20px;
+    text-decoration: none;
+    margin: 0;
+  }
+  
+  .menuSlideout.active{
+    animation: slideIn .75s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+  }
+  
+  @keyframes slideIn{
+    0%{
+      transform: translateX(100%);
+    }
+  
+    100%{
+      transform: translateX(0%);
+    }
+  }
+  
+  @media screen and (max-width: 740px){
+  
+    .links{
+      display: none;
+    }
+  
+    .menu{
+      display: flex;
+    }
+  
+  }
+  
+  @media screen and (min-width: 740px){
+    .menuSlideout{
+      display: none !important;
+    }
+  }
+  
+  // Inside of the menu styling
+  
+  
