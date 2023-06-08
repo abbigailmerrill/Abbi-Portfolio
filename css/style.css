@@ -561,6 +561,11 @@ h2 {
     margin-top: 40%;
   }
 }
+@media screen and (max-width: 560px) {
+  #projects h1 {
+    margin-top: 220px;
+  }
+}
 #contact {
   flex-direction: column;
   height: auto;
