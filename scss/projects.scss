@@ -1,3 +1,5 @@
+$gradient-value2: #260C5A;
+
 #projects{
     flex-direction: column;
     height: auto;
@@ -32,6 +34,14 @@
     justify-content: space-between;
     flex-direction: column;
     margin: 22px;
+
+    a{
+        text-decoration: none;
+    }
+
+    a h3:hover{
+        color: $gradient-value2;
+    }
 
     h3{
         color: white;
