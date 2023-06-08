@@ -490,6 +490,11 @@ h2 {
     z-index: 11;
   }
 }
+@media screen and (max-width: 560px) {
+  .expImgs {
+    margin-top: 0;
+  }
+}
 #projects {
   flex-direction: column;
   height: auto;

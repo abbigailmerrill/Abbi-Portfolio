@@ -99,3 +99,11 @@ $gradient-value2: #260C5A;
         z-index: 11;
     }
 }
+
+// Mobile error fix called out by Hunter Martin and my mom 6/8/23
+
+@media screen and (max-width: 560px){
+    .expImgs{
+        margin-top: 0;
+    }
+}
