@@ -93,3 +93,14 @@ document.querySelectorAll('.links a:not(.githubLink)').forEach(anchor => {
         })
     })
 })
+
+// responsive styling for projects h1 tag
+
+const projectHeader = jQuery(".projectHeader");
+var projects = jQuery('.projectBox');
+const idealHeight = 115;
+
+if(projects.length > 0 && $(window).width() >= 490){
+   var newHeight = projects.length * idealHeight;
+   projectHeader.css("margin-top",newHeight+"px");
+}
